@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head><title>Catalog</title></head>
+  <body>
+    <h1>Book Catalog</h1>
+    {% if books %}
+      <table border="1" cellpadding="8">
+        <tr><th>Title</th><th>Author</th><th>Price</th><th>ISBN</th></tr>
+        {% for b in books %}
+          <tr>
+            <td>{{ b.title }}</td>
+            <td>{{ b.author }}</td>
+            <td>{{ b.price }}</td>
+            <td>{{ b.isbn }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No books added yet.</p>
+    {% endif %}
+    <p><a href="/">Add New Book</a></p>
+  </body>
+</html>
