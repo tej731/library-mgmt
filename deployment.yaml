@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bookstore-deployment
+  name: library-deployment
+  labels:
+    app: library
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookstore
+      app: library
   template:
     metadata:
       labels:
-        app: bookstore
+        app: library
     spec:
       containers:
-      - name: bookstore
-        image: teju898/online-bookstore:latest
+      - name: library
+        image: sony1750812/library:t6
         ports:
         - containerPort: 5001
