@@ -1,23 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head><title>Books Catalog</title></head>
-  <body>
-    <h1>Book Catalog</h1>
-    {% if books %}
-      <table border="1" cellpadding="8">
-        <tr><th>Title</th><th>Author Name</th><th>Price of the book</th><th>ISBN</th></tr>
-        {% for b in books %}
-          <tr>
-            <td>{{ b.title }}</td>
-            <td>{{ b.author }}</td>
-            <td>{{ b.price }}</td>
-            <td>{{ b.isbn }}</td>
-          </tr>
+<head>
+    <title>Book Catalog</title>
+    <style>
+        body { font-family: Arial; text-align: center; background: #e3f2fd; }
+        table { margin: auto; border-collapse: collapse; width: 60%; background: white; box-shadow: 0 0 10px gray; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+    <h2>Book Catalog</h2>
+    <table>
+        <tr><th>Title</th><th>Author</th><th>Price</th><th>ISBN</th></tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.isbn }}</td>
+        </tr>
         {% endfor %}
-      </table>
-    {% else %}
-      <p>No books added yet.</p>
-    {% endif %}
-    <p><a href="/">Add New Book</a></p>
-  </body>
+    </table>
+    <br><a href="/">Add Another Book</a>
+</body>
 </html>
