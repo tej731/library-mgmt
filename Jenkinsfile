@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image..."
-                bat 'docker build -t sony1750812/library:t6 .'
+                bat 'docker build -t sony1750812/library_mgmt:t6 .'
             }
         }
 
@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 echo "Pushing image to Docker Hub..."
-                bat 'docker push sony1750812/library:t6'
+                bat 'docker push sony1750812/library_mgmt:t6'
             }
         }
 
@@ -41,3 +41,4 @@ pipeline {
         }
     }
 }
+
