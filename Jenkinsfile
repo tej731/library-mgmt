@@ -4,27 +4,28 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                echo "Building Docker Image"
-                bat "docker build -t teju898/online-bookstore:latest ."
+                echo "Building Docker Image..."
+                bat 'docker build -t sony1750812/library:t6 .'
             }
         }
 
         stage('Docker Login') {
             steps {
-                bat "docker login -u teju898 -p teju@8985"
+                echo "Logging into Docker Hub..."
+                bat 'docker login -u sony1750812 -p sony@1415'
             }
         }
 
-        stage('Push Docker Image to Docker Hub') {
+        stage('Push Docker Image') {
             steps {
-                echo "Pushing Docker image to Docker Hub"
-                bat "docker push teju898/online-bookstore:latest"
+                echo "Pushing image to Docker Hub..."
+                bat 'docker push sony1750812/library:t6'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                echo "Deploying to Kubernetes"
+                echo "Deploying to Kubernetes..."
                 bat 'kubectl apply -f deployment.yaml --validate=false'
                 bat 'kubectl apply -f service.yaml'
             }
@@ -33,10 +34,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo "✅ Library Management System successfully deployed!"
         }
         failure {
-            echo 'Pipeline failed. Please check the logs.'
+            echo "❌ Pipeline failed. Check Jenkins logs."
         }
     }
 }
