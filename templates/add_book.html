@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add a Book</title>
+    <title>Book Catalog</title>
     <style>
-        body { font-family: Arial; text-align: center; margin-top: 80px; background: #f4f4f9; }
-        form { background: white; padding: 25px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px gray; }
-        input { margin: 8px; padding: 8px; border: 1px solid gray; border-radius: 5px; }
-        input[type="submit"] { background: #007bff; color: white; cursor: pointer; }
-        input[type="submit"]:hover { background: #0056b3; }
+        body { font-family: Arial; text-align: center; background: #e3f2fd; }
+        table { margin: auto; border-collapse: collapse; width: 60%; background: white; box-shadow: 0 0 10px gray; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background-color: #007bff; color: white; }
     </style>
 </head>
 <body>
-    <h2>Add a Book</h2>
-    <form method="POST" action="/add">
-        <input type="text" name="title" placeholder="Title"><br>
-        <input type="text" name="author" placeholder="Author"><br>
-        <input type="text" name="price" placeholder="Price"><br>
-        <input type="text" name="isbn" placeholder="ISBN"><br>
-        <input type="submit" value="Add Book">
-    </form>
-    <br><a href="/catalog">View Catalog</a>
+    <h2>Book Catalog</h2>
+    <table>
+        <tr><th>Title</th><th>Author</th><th>Price</th><th>ISBN</th></tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.isbn }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Add Another Book</a>
 </body>
 </html>
