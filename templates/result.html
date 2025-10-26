@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Location Result</title>
+</head>
+<body>
+    {% if book %}
+        <h2>Book Found!</h2>
+        <p><strong>Title:</strong> {{ book.title }}</p>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Location:</strong> {{ book.location }}</p>
+    {% else %}
+        <h2>Book not found in the library.</h2>
+    {% endif %}
+    <a href="/">Search Again</a>
+</body>
+</html>
