@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: library
-        image: sony1750812/library:t6
+        image: sony1750812/library_mgmt:t6
         ports:
         - containerPort: 5001
